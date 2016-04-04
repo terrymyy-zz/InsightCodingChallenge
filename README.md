@@ -1,5 +1,5 @@
 # InsightCodingChallenge
-This is a Java project created for Insight Coding Challenge, finished on 2016/04/04. Mission detail can be found in: 
+This is a Java project created by Yaoyu Ma(terrymyy) for Insight Coding Challenge, finished on 2016/04/04. Mission detail can be found in: 
 https://github.com/InsightDataScience/coding-challenge
 
 This project consists of 5 classes(.java):
