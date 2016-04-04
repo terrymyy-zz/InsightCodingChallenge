@@ -26,7 +26,6 @@ public class CleanData {
 		collection = new ArrayList<Tweet>();
 	}
 	
-	
 	/**
 	 * search for the transaction information
 	 * {@link #readFile()}

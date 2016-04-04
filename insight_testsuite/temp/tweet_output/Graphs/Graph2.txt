@@ -1,0 +1,7 @@
+Pisteare <-> elsientometro
+fullset <-> whitepinkacrylic
+fullset <-> ArceliasNails
+fullset <-> mobilehomebasednailservice
+whitepinkacrylic <-> ArceliasNails
+whitepinkacrylic <-> mobilehomebasednailservice
+ArceliasNails <-> mobilehomebasednailservice

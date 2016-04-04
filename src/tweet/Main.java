@@ -3,10 +3,11 @@
  */
 package tweet;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * @author mayaoyu
@@ -22,6 +23,8 @@ public class Main {
 		// read in raw data
 		CleanData extracted = new CleanData();
 		ArrayList<Tweet> collection;
+		File dir = new File("../tweet_output/Graphs");
+		dir.mkdir();
 		
 		//System.out.println("cleaning....");
 		collection = extracted.readFile("../tweet_input/tweets.txt");
@@ -36,8 +39,10 @@ public class Main {
 		HashTagGraph graph = new HashTagGraph();
 		Window window = new Window();
 		String content = "";
+		int counter = 0;
 		for(Tweet tweet : collection){
 			content += window.addTweet(tweet)+"\n";
+			counter++;
 		}
 		window.writeAverageDegreeFile("../tweet_output/output.txt", content);
 		//graph.print();
