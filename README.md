@@ -1,5 +1,6 @@
 # InsightCodingChallenge
-This is a Java project created for Insight Coding Challenge, finished on 2016/04/04.
+This is a Java project created for Insight Coding Challenge, finished on 2016/04/04. Mission detail can be found in: 
+https://github.com/InsightDataScience/coding-challenge
 This project consists of 5 classes(.java):
 * CleanData.java(which read in the data, clean and abstract tweets infomation, write tweets into clean form etc.)
 * Tweet.java(which generate every tweets that contains date and hashtags, also methods like add new hashtags, toString, print etc.)
