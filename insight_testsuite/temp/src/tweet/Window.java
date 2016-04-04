@@ -18,7 +18,7 @@ public class Window {
 	Date currentTime;
 	ArrayList<Tweet> tweets;
 	Date oneMinAgo;
-	int flag;
+	int counter;
 	
 	/**
 	 * Constructor
@@ -28,21 +28,24 @@ public class Window {
 		currentTime = new Date();
 		oneMinAgo = new Date();
 		tweets = new ArrayList<Tweet>();
-		flag = 0;
+		counter = 0;
 	}
 	
 	/**
 	 * addTweet
 	 * @param tweet
 	 * @return
+	 * @throws UnsupportedEncodingException 
+	 * @throws FileNotFoundException 
 	 */
-	public String addTweet(Tweet tweet) {
-		if(flag == 0){
+	public String addTweet(Tweet tweet) throws FileNotFoundException, UnsupportedEncodingException {
+		if(counter == 0){
 			tweets.add(tweet);
 			hashTagGraph.createGraph(tweet);
 			currentTime = tweet.getcreateAt();
 			oneMinAgo = new Date(currentTime.getTime() - 60000);
-			flag = 1;
+			counter++;
+			hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
 			return hashTagGraph.getAverageDegreeString();
 		}
 		switch(checkTime(tweet)){
@@ -60,14 +63,20 @@ public class Window {
 					hashTagGraph.createGraph(tweets.get(i));
 				}
 			}
+			counter++;
+			hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
 			return hashTagGraph.getAverageDegreeString();
 		// 2 for before oneMinAgo, disregard
 		case 2:
+			counter++;
+			hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
 			return hashTagGraph.getAverageDegreeString();
 		// 3 for within the timestamp, add the tweet to the graph
 		case 3:
 			tweets.add(tweet);
 			hashTagGraph.createGraph(tweet);
+			counter++;
+			hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
 			return hashTagGraph.getAverageDegreeString();
 		default:
 			break;
