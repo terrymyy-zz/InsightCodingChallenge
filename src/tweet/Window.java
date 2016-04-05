@@ -45,7 +45,7 @@ public class Window {
 			currentTime = tweet.getcreateAt();
 			oneMinAgo = new Date(currentTime.getTime() - 60000);
 			counter++;
-			hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
+			//hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
 			return hashTagGraph.getAverageDegreeString();
 		}
 		switch(checkTime(tweet)){
@@ -64,19 +64,19 @@ public class Window {
 				}
 			}
 			counter++;
-			hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
+			//hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
 			return hashTagGraph.getAverageDegreeString();
 		// 2 for before oneMinAgo, disregard
 		case 2:
 			counter++;
-			hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
+			//hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
 			return hashTagGraph.getAverageDegreeString();
 		// 3 for within the timestamp, add the tweet to the graph
 		case 3:
 			tweets.add(tweet);
 			hashTagGraph.createGraph(tweet);
 			counter++;
-			hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
+			//hashTagGraph.writeGraphFile("../tweet_output/Graphs/Graph"+counter+".txt");
 			return hashTagGraph.getAverageDegreeString();
 		default:
 			break;
